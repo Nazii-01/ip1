@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Image Map Demo</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+.page {
+  display: none;
+}
+.page.active {
+  display: block;
+}
+.map-container {
+  position: relative;
+  width: 600px;
+  height: 400px;
+  margin: 0 auto;
+  border: 2px solid #000;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+.map-area {
+  position: absolute;
+  border: 2px solid #fff;
+  cursor: pointer;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  text-align: center;
+}
+.map-area:hover {
+  background: rgba(255,255,255,0.2);
+  transform: scale(1.05);
+}
+.rect1 { left: 50px; top: 50px; width: 200px; height: 100px; }
+.rect2 { left: 300px; top: 50px; width: 250px; height: 100px; }
+.circle { left: 220px; top: 170px; width: 160px; height: 160px; border-radius: 50%; }
+.rect3 { left: 50px; top: 300px; width: 200px; height: 80px; }
+a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: bold;
+}
+a:hover {
+  text-decoration: underline;
+}
+</style>
+</head>
+<body>
+
+<!-- Main Page -->
+<div id="main" class="page active">
+<center><h1>College Departments - Click on Sections</h1></center>
+<hr>
+<center>
+<div class="map-container">
+  <div class="map-area rect1" onclick="showPage('cse')">CSE<br>Department</div>
+  <div class="map-area rect2" onclick="showPage('ece')">ECE<br>Department</div>
+  <div class="map-area circle" onclick="showPage('mech')">Mechanical<br>Department</div>
+  <div class="map-area rect3" onclick="showPage('civil')">Civil<br>Department</div>
+</div>
+</center>
+</div>
+
+<!-- CSE Page -->
+<div id="cse" class="page">
+<center><h1>Computer Science and Engineering Department</h1></center>
+<hr>
+<h3>About CSE Department:</h3>
+<p>The CSE department was established in 2000. It offers B.Tech and M.Tech programs.</p>
+<h3>Facilities:</h3>
+<ul>
+<li>5 Computer Laboratories</li>
+<li>Latest Software Tools</li>
+</ul>
+<center><a href="#" onclick="showPage('main'); return false;">Back to Main Page</a></center>
+</div>
+
+<!-- ECE Page -->
+<div id="ece" class="page">
+<center><h1>Electronics and Communication Engineering Department</h1></center>
+<hr>
+<h3>About ECE Department:</h3>
+<p>The ECE department offers undergraduate and postgraduate programs in electronics.</p>
+<h3>Facilities:</h3>
+<ul>
+<li>Digital Electronics Lab</li>
+<li>Communication Lab</li>
+<li>VLSI Design Lab</li>
+<li>High Speed Internet</li>
+</ul>
+<center><a href="#" onclick="showPage('main'); return false;">Back to Main Page</a></center>
+</div>
+
+<!-- Mechanical Page -->
+<div id="mech" class="page">
+<center><h1>Mechanical Engineering Department</h1></center>
+<hr>
+<h3>About Mechanical Department:</h3>
+<p>The Mechanical department offers comprehensive programs in mechanical engineering.</p>
+<h3>Facilities:</h3>
+<ul>
+<li>Workshop</li>
+<li>CAD/CAM Lab</li>
+<li>Thermodynamics Lab</li>
+</ul>
+<center><a href="#" onclick="showPage('main'); return false;">Back to Main Page</a></center>
+</div>
+
+<!-- Civil Page -->
+<div id="civil" class="page">
+<center><h1>Civil Engineering Department</h1></center>
+<hr>
+<h3>About Civil Department:</h3>
+<p>The Civil department focuses on infrastructure and construction engineering.</p>
+<h3>Facilities:</h3>
+<ul>
+<li>Surveying Lab</li>
+<li>Concrete Testing Lab</li>
+<li>Structural Analysis Lab</li>
+</ul>
+<center><a href="#" onclick="showPage('main'); return false;">Back to Main Page</a></center>
+</div>
+
+<script>
+function showPage(pageId) {
+  var pages = document.getElementsByClassName('page');
+  for (var i = 0; i < pages.length; i++) {
+    pages[i].classList.remove('active');
+  }
+  document.getElementById(pageId).classList.add('active');
+}
+</script>
+
+</body>
+</html>
