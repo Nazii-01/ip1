@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Form Validation using JavaScript</title>
+<script>
+function validateForm() {
+  var name = document.studentForm.name.value;
+  var email = document.studentForm.email.value;
+  var age = document.studentForm.age.value;
+  var password = document.studentForm.password.value;
+
+  if (name == "" || email == "" || age == "" || password == "") {
+    alert("Please fill all the fields!");
+    return false;
+  }
+
+  if (age < 18 || age > 60) {
+    alert("Age must be between 18 and 60!");
+    return false;
+  }
+
+  if (email.indexOf("@") == -1 || email.indexOf(".") == -1) {
+    alert("Enter a valid email address!");
+    return false;
+  }
+
+  if (password.length < 6) {
+    alert("Password must be at least 6 characters long!");
+    return false;
+  }
+
+  alert("Form Submitted Successfully!");
+  return true;
+}
+</script>
+
+<style>
+body {
+  background-color: #e0f7fa;
+  font-family: Verdana;
+}
+.container {
+  background-color: white;
+  width: 50%;
+  margin: auto;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 0 8px gray;
+}
+h2 {
+  color: #006064;
+  text-align: center;
+}
+input {
+  width: 80%;
+  padding: 8px;
+  margin: 5px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+button {
+  background-color: #00838f;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+  <h2>Student Registration</h2>
+  <form name="studentForm" onsubmit="return validateForm()">
+    Name: <input type="text" name="name"><br>
+    Email: <input type="text" name="email"><br>
+    Age: <input type="number" name="age"><br>
+    Password: <input type="password" name="password"><br>
+    <button type="submit">Submit</button>
+    <button type="reset">Reset</button>
+  </form>
+</div>
+</body>
+</html>
